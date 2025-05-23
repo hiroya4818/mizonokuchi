@@ -1,5 +1,4 @@
 import '../App.css';
-import AnswerInput from './AnswerInput';
 import StartButton from './StartButton';
 import { useNavigate } from 'react-router-dom';
 
