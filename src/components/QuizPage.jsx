@@ -16,6 +16,7 @@ function QuizPage() {
     <div
       className="App"
       style={{
+        paddingTop: '30px',
         minHeight: '100vh',
         minWidth: '100vw',
         height: '100vh',

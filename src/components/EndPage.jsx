@@ -3,7 +3,7 @@ import AnswerInput from './AnswerInput';
 import StartButton from './StartButton';
 import { useNavigate } from 'react-router-dom';
 
-function StartPage() {
+function EndPage() {
   const navigate = useNavigate();
 
   const handleStart = () => {
@@ -33,7 +33,7 @@ function StartPage() {
         }}
       >
         <img
-          src="/image.png"
+          src="/Quiz/Success.png"
           alt="main visual"
           className="dreamy-image"
           style={{
@@ -61,4 +61,4 @@ function StartPage() {
   );
 }
 
-export default StartPage;
+export default EndPage;

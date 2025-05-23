@@ -38,24 +38,28 @@
 }
 
 /* App.css に追加 */
-@keyframes dreamyFadeIn {
+@keyframes dreamyPopIn {
   0% {
     opacity: 0;
-    filter: blur(16px);
-    transform: scale(1.08);
+    filter: blur(12px);
+    transform: scale(1.12) rotate(-2deg);
   }
   60% {
     opacity: 1;
-    filter: blur(4px);
-    transform: scale(1.02);
+    filter: blur(2px);
+    transform: scale(1.03) rotate(1deg);
+  }
+  80% {
+    filter: blur(0.5px);
+    transform: scale(0.98) rotate(-0.5deg);
   }
   100% {
     opacity: 1;
     filter: blur(0);
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
   }
 }
 
 .dreamy-image {
-  animation: dreamyFadeIn 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: dreamyPopIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

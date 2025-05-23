@@ -17,7 +17,7 @@ function AnswerInput({ questionNumber }) {
     if (Number(questionNumber) === 3) {
       navigate('/end');
     } else {
-      navigate(`/quiz?q={{Number(questionNumber) + 1}}`);
+      navigate(`/quiz?q=${Number(questionNumber) + 1}`);
     }
   };
 
