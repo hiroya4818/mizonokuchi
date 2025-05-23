@@ -1,3 +1,4 @@
+import '../App.css';
 import AnswerInput from './AnswerInput';
 import StartButton from './StartButton';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +7,7 @@ function StartPage() {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate('/quiz');
+    navigate('/quiz?q=1');
   };
 
   return (
@@ -33,6 +34,7 @@ function StartPage() {
         <img
           src="/image.png"
           alt="main visual"
+          className="dreamy-image"
           style={{
             width: '100%',
             height: 'auto',

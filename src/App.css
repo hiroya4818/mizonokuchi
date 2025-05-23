@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css に追加 */
+@keyframes dreamyFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(16px);
+    transform: scale(1.08);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(4px);
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.dreamy-image {
+  animation: dreamyFadeIn 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}

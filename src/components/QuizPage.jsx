@@ -1,7 +1,17 @@
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import AnswerInput from './AnswerInput';
-import StartButton from './StartButton';
 
 function QuizPage() {
+  const location = useLocation();
+  const [questionNumber, setQuestionNumber] = useState(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q');
+    setQuestionNumber(q);
+  }, [location.search]);
+
   return (
     <div
       className="App"
@@ -24,7 +34,7 @@ function QuizPage() {
         }}
       >
         <img
-          src="/Quiz/Quiz1.png"
+          src={`/Quiz/Quiz${questionNumber}.png`}
           alt="main visual"
           style={{
             width: '100%',
@@ -43,7 +53,7 @@ function QuizPage() {
             justifyContent: 'center',
           }}
         >
-          <AnswerInput />
+          <AnswerInput questionNumber={questionNumber} />
         </div>
       </div>
       {/* 他のコンポーネント */}
