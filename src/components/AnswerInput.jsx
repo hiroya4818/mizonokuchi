@@ -1,37 +1,41 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom';
 
 function AnswerInput() {
   const [answer, setAnswer] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setAnswer(e.target.value);
   };
 
   const handleSubmit = () => {
-    alert(`あなたの回答: ${answer}`);
-    // ここに判定処理などを追加できます
+    // ここで判定処理などを追加できます
+    // 例: 正解なら遷移
+    navigate('/quiz');
   };
 
   return (
-    <div style={{ marginTop: '2rem' }}>
-      <input
+    <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center' }}>
+      <TextField
         type="text"
         value={answer}
         onChange={handleInputChange}
         placeholder="ここに回答を入力"
-        style={{ padding: '0.5rem', fontSize: '1rem' }}
+        variant="outlined"
+        size="small"
+        sx={{ background: '#fff' }}
       />
-      <button
+      <Button
+        variant="contained"
+        color="primary"
         onClick={handleSubmit}
-        style={{
-          marginLeft: '1rem',
-          padding: '0.5rem 1rem',
-          fontSize: '1rem',
-          cursor: 'pointer'
-        }}
+        sx={{ marginLeft: 2, fontWeight: 'bold' }}
       >
         決定
-      </button>
+      </Button>
     </div>
   );
 }
