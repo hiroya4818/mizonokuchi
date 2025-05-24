@@ -34,6 +34,7 @@ function StartPage() {
         <img
           src="/image.png"
           alt="main visual"
+          rel="preload"
           className="dreamy-image"
           style={{
             width: '100%',
