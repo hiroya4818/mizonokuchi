@@ -53,7 +53,10 @@ function StartPage() {
             justifyContent: 'center',
           }}
         >
-          <StartButton onStart={handleStart} />
+          <StartButton
+            onStart={handleStart}
+            buttonName={'スタート'}
+          />
         </div>
       </div>
       {/* 他のコンポーネント */}

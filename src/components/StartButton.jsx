@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 
-function StartButton({ onStart }) {
+function StartButton({ onStart, buttonName }) {
   return (
     <Button
       variant="contained"
@@ -16,7 +16,7 @@ function StartButton({ onStart }) {
         py: 1.5,
       }}
     >
-      スタート
+      {buttonName}
     </Button>
   );
 }
