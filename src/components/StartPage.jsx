@@ -1,6 +1,9 @@
-import '../App.css';
+import React from 'react';
 import StartButton from './StartButton';
 import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 
 function StartPage() {
   const navigate = useNavigate();
@@ -10,57 +13,52 @@ function StartPage() {
   };
 
   return (
-    <div
-      className="App"
-      style={{
-        paddingTop: '30px',
+    <Box
+      sx={{
         minHeight: '100vh',
-        minWidth: '100vw',
-        height: '100vh',
-        width: '100vw',
-        backgroundColor: '#fff5e1',
-        overflow: 'auto',
+        background: '#fff5e1',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        py: 5,
+        px: 2,
       }}
     >
-      <div
-        style={{
+      <Paper
+        elevation={2}
+        sx={{
           width: '100%',
-          maxWidth: '100vw',
+          maxWidth: 600,
+          mb: 4,
+          p: 3,
+          borderRadius: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
-        <img
+        <Box
+          component="img"
           src="/image.png"
           alt="main visual"
-          rel="preload"
-          className="dreamy-image"
-          style={{
+          sx={{
             width: '100%',
+            maxWidth: 500,
             height: 'auto',
-            display: 'block',
-            maxWidth: '100vw',
+            borderRadius: 2,
+            boxShadow: 2,
+            mb: 3,
           }}
         />
-        <div
-          style={{
-            width: '100%',
-            paddingTop: 20,
-            paddingBottom: 20,
-            background: '#fff5e1',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <StartButton
-            onStart={handleStart}
-            buttonName={'スタート'}
-          />
-        </div>
-      </div>
-      {/* 他のコンポーネント */}
-    </div>
+        <Typography sx={{ mb: 2 }}>
+          スタートボタンを押して冒険を始めよう！
+        </Typography>
+        <StartButton
+          onStart={handleStart}
+          buttonName={'スタート'}
+        />
+      </Paper>
+    </Box>
   );
 }
 

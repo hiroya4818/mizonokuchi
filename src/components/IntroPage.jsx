@@ -14,7 +14,7 @@ function IntroPage() {
   const [open, setOpen] = useState(false);
 
   const handleStart = () => {
-    navigate('/quiz?q=1');
+    navigate('/navigation?n=1');
   };
 
   return (
@@ -57,7 +57,7 @@ function IntroPage() {
             title="溝の口駅前 円筒分水広場"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1622.0691058325642!2d139.6113513038319!3d35.59965712270186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f50001b5b311%3A0xda17c35de2ad563c!2z44Kt44Op44Oq44OH44OD44Kt!5e0!3m2!1sja!2sjp!4v1748177161332!5m2!1sja!2sjp"
             width="100%"
-            height="300"
+            height="220"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
@@ -86,51 +86,62 @@ function IntroPage() {
           </IconButton>
         </Box>
         <Collapse in={open}>
-          <Box>
-            <Typography sx={{ mb: 1 }}>
-              あなたが溝の口駅を出て、円筒分水広場に足を踏み入れたその時――どこからともなく、不思議な声が聞こえてきます。
-            </Typography>
-            <Box
-              component="blockquote"
+          <Box 
+            display="flex" 
+            alignItems="center"
+            justifyContent="space-between" 
+            mb={1}
+          >
+            <Paper
+              elevation={2}
               sx={{
-                color: '#555',
-                fontStyle: 'italic',
-                borderLeft: '4px solid #014421',
-                pl: 2,
-                my: 1,
-                background: '#f7f7f7',
-                borderRadius: 1,
+                width: '100%',
+                maxWidth: 600,
+                p: 3,
+                borderRadius: 2,
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 2,
+                // background: '#fffbe6',
+                boxShadow: 0,
+                mb: 0,
               }}
             >
-              「やあ、旅人さん。ここは“みぞのくち”の時の流れが交わる場所――円筒分水広場だニャ。<br />
-              ボクの名前は“のくち”。この町の歴史を見守ってきた、しゃべれるネコなんだニャ。」
-            </Box>
-            <Typography sx={{ mb: 1 }}>
-              あなたの足元に、ふわりと現れる一匹のネコ。その瞳は、まるで過去と未来をすべて知っているかのように輝いています。
-            </Typography>
-            <Box
-              component="blockquote"
-              sx={{
-                color: '#555',
-                fontStyle: 'italic',
-                borderLeft: '4px solid #014421',
-                pl: 2,
-                my: 1,
-                background: '#f7f7f7',
-                borderRadius: 1,
-              }}
-            >
-              「この町には、まだ誰も知らない“時の謎”がたくさん眠っているニャ。<br />
-              さあ、ボクと一緒に、みぞのくちの時空を旅してみないかニャ？<br />
-              きみの力で、過去の事件や不思議を解き明かして、現代のみぞのくちを救ってほしいニャ！」
-            </Box>
-            <Typography>
-              あなたは“のくち”に導かれ、今まさに、みぞのくちの歴史を巡るタイムトラベルの冒険へと踏み出します――。
-            </Typography>
+            <Box>
+              <Box
+                component="img"
+                src="/icon/cat.png"
+                alt="のくち"
+                sx={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  boxShadow: 1,
+                  mr: 2,
+                }}
+              />
+                <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
+                  のくち
+                </Typography>
+
+              </Box>
+              <Box>
+                <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
+                  やあ、旅人さん！
+                </Typography>
+                <Typography>
+                  ここは“みぞのくち”の時の流れが交わる場所、円筒分水広場だニャ。<br />
+                  ボクは“のくち”。この町の歴史を案内するネコだよ。<br />
+                  さあ、一緒にみぞのくちの歴史を巡る冒険に出発しようニャ！
+                </Typography>
+              </Box>
+            </Paper>
           </Box>
         </Collapse>
       </Paper>
 
+      {/* スタートボタン */}
       <Box
         sx={{
           width: '100%',

@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
 
-function AnswerInput({ questionNumber }) {
+function AnswerInput({ questionNumber, navigationNumber }) {
   const [answer, setAnswer] = useState('');
   const navigate = useNavigate();
 
@@ -14,10 +14,10 @@ function AnswerInput({ questionNumber }) {
   const handleSubmit = () => {
     // ここで判定処理などを追加できます
     // 例: 正解なら遷移
-    if (Number(questionNumber) === 3) {
-      navigate('/end');
+    if (questionNumber) {
+      navigate(`/explanation?e=${Number(questionNumber)}`);
     } else {
-      navigate(`/quiz?q=${Number(questionNumber) + 1}`);
+      navigate(`/quiz?q=${Number(navigationNumber)}`);
     }
   };
 
