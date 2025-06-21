@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import AnswerInput from './AnswerInput';
 
 function QuizPage() {
@@ -8,57 +11,67 @@ function QuizPage() {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const q = params.get('q');
+    const q = Number(params.get('q'));
     setQuestionNumber(q);
   }, [location.search]);
 
   return (
-    <div
-      className="App"
-      style={{
-        paddingTop: '30px',
+    <Box
+      sx={{
         minHeight: '100vh',
-        minWidth: '100vw',
-        height: '100vh',
-        width: '100vw',
-        backgroundColor: '#fff5e1',
-        overflow: 'auto',
+        background: '#fff5e1',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        py: 5,
+        px: 2,
       }}
     >
-      <div
-        style={{
+      {/* 問題画像 */}
+      <Paper
+        elevation={1}
+        sx={{
           width: '100%',
-          maxWidth: '100vw',
+          maxWidth: 600,
+          borderRadius: 2,
+          p: 2,
+          mb: 4,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <img
-          src={`/Quiz/Quiz${questionNumber}.png`}
-          alt="main visual"
-          style={{
-            width: '100%',
-            height: 'auto',
-            display: 'block',
-            maxWidth: '100vw',
-          }}
-        />
-        <div
-          style={{
-            width: '100%',
-            paddingTop: 20,
-            paddingBottom: 20,
-            background: '#fff5e1',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <AnswerInput questionNumber={questionNumber} />
-        </div>
-      </div>
-      {/* 他のコンポーネント */}
-    </div>
+        {questionNumber ? (
+          <Box
+            component="img"
+            src={`/Quiz/Quiz${questionNumber}.png`}
+            alt={`クイズ${questionNumber}`}
+            sx={{
+              width: '100%',
+              maxWidth: 500,
+              height: 'auto',
+              borderRadius: 2,
+              boxShadow: 2,
+            }}
+          />
+        ) : (
+          <Typography color="text.secondary">画像を読み込み中...</Typography>
+        )}
+      </Paper>
+
+      {/* 回答欄 */}
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: 600,
+          display: 'flex',
+          justifyContent: 'center',
+          pb: 2,
+        }}
+      >
+        <AnswerInput questionNumber={questionNumber} />
+      </Box>
+    </Box>
   );
 }
 

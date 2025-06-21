@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import AnswerInput from './AnswerInput';
-import {navigationData} from '../mocks/data';
+import {NAVIGATION_INFO} from '../mocks/data';
 
 function NavigationPage({ catMessage = "目印を探してみようニャ！", description = "次の目印は、溝の口駅前 円筒分水広場にあるよ！", imageSrc = "/images/navigation.png" }) {
   const location = useLocation();
@@ -15,7 +15,6 @@ function NavigationPage({ catMessage = "目印を探してみようニャ！", d
     const params = new URLSearchParams(location.search);
     const n = Number(params.get('n'));
     setNavigationNumber(n);
-    console.log(navigationData[n - 1]);
   }, [location.search]);
 
   // const answer = (answerWord) => {
@@ -67,9 +66,9 @@ function NavigationPage({ catMessage = "目印を探してみようニャ！", d
         />
         <Box>
           <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
-            {catMessage}
+            マップの場所に移動して目印を探してみよう！
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography>{ NAVIGATION_INFO[navigationNumber - 1]?.description }</Typography>
         </Box>
       </Paper>
 
@@ -83,14 +82,18 @@ function NavigationPage({ catMessage = "目印を探してみようニャ！", d
           p: 2,
           mb: 4,
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        {navigationNumber && navigationData[navigationNumber - 1] ? (
+        <Typography sx={{ mb: 2, fontWeight: 'bold'}}>
+          Q.{ NAVIGATION_INFO[navigationNumber - 1]?.question }
+        </Typography>
+        {navigationNumber && NAVIGATION_INFO[navigationNumber - 1] ? (
           <Box
             component="img"
-            src={navigationData[navigationNumber - 1].imageSrc}
+            src={NAVIGATION_INFO[navigationNumber - 1].imageSrc}
             alt="目印の画像"
             sx={{
               width: '100%',
