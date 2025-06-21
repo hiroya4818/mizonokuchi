@@ -9,7 +9,6 @@ import {NAVIGATION_INFO} from '../mocks/data';
 function NavigationPage({ catMessage = "目印を探してみようニャ！", description = "次の目印は、溝の口駅前 円筒分水広場にあるよ！", imageSrc = "/images/navigation.png" }) {
   const location = useLocation();
   const [navigationNumber, setNavigationNumber] = useState(null);
-  let isMissAnswer = false;
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
