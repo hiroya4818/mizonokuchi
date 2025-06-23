@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
-import { NAVIGATION_INFO } from '../mocks/data';
+import { NAVIGATION_INFO } from '../../mocks/navigationData';
+import { QUESTION_INFO } from '../../mocks/questionData';
 
 function AnswerInput({ questionNumber, navigationNumber }) {
   const [answer, setAnswer] = useState('');
   const navigate = useNavigate();
+  const correctAnswer = navigationNumber ? NAVIGATION_INFO[navigationNumber - 1].answer : QUESTION_INFO[questionNumber - 1].answer;
   let isCorrect;
 
   const handleInputChange = (e) => {
@@ -16,7 +18,7 @@ function AnswerInput({ questionNumber, navigationNumber }) {
   const handleSubmit = () => {
     // ここで判定処理などを追加できます
     // 例: 正解なら遷移
-    isCorrect = answer.trim() === NAVIGATION_INFO[navigationNumber - 1].answer;
+    isCorrect = answer.trim() === correctAnswer;
     if (!isCorrect) {
       alert('不正解です。もう一度試してください。');
       return;

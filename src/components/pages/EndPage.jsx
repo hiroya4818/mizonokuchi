@@ -1,5 +1,5 @@
-import '../App.css';
-import StartButton from './StartButton';
+import '../../App.css';
+import StartButton from '../ui/StartButton';
 import { useNavigate } from 'react-router-dom';
 
 function EndPage() {

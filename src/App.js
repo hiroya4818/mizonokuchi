@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import StartPage from './components/StartPage';
-import QuizPage from './components/QuizPage';
-import EndPage from './components/EndPage';
-import Header from './components/Header';
-import IntroPage from './components/IntroPage';
-import NavigationPage from './components/NavigationPage';
-import ExplanationPage from './components/ExplanationPage';
+import StartPage from './components/pages/StartPage';
+import QuizPage from './components/pages/QuizPage';
+import EndPage from './components/pages/EndPage';
+import Header from './components/ui/Header';
+import IntroPage from './components/pages/IntroPage';
+import NavigationPage from './components/pages/NavigationPage';
+import ExplanationPage from './components/pages/ExplanationPage';
 
 function App() {
   return (

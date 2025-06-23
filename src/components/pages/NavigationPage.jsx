@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import AnswerInput from './AnswerInput';
-import {NAVIGATION_INFO} from '../mocks/data';
+import AnswerInput from '../ui/AnswerInput';
+import {NAVIGATION_INFO} from '../../mocks/navigationData';
 
 function NavigationPage({ catMessage = "目印を探してみようニャ！", description = "次の目印は、溝の口駅前 円筒分水広場にあるよ！", imageSrc = "/images/navigation.png" }) {
   const location = useLocation();
@@ -46,28 +46,63 @@ function NavigationPage({ catMessage = "目印を探してみようニャ！", d
           p: 3,
           borderRadius: 2,
           display: 'flex',
+          flexDirection: 'column', // 縦並び
           alignItems: 'flex-start',
           gap: 2,
         }}
       >
+        {/* ネコ画像＋文章を横並びで1セット */}
         <Box
-          component="img"
-          src="/icon/cat.png"
-          alt="のくち"
           sx={{
-            width: 64,
-            height: 64,
-            borderRadius: '50%',
-            objectFit: 'cover',
-            boxShadow: 1,
-            mr: 2,
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: 2,
+            width: '100%',
+            mb: 2,
           }}
-        />
-        <Box>
-          <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
-            マップの場所に移動して目印を探してみよう！
-          </Typography>
-          <Typography>{ NAVIGATION_INFO[navigationNumber - 1]?.description }</Typography>
+        >
+          <Box
+            component="img"
+            src="/icon/cat.png"
+            alt="のくち"
+            sx={{
+              width: 64,
+              height: 64,
+              borderRadius: '50%',
+              objectFit: 'cover',
+              boxShadow: 1,
+              mr: 2,
+            }}
+          />
+          <Box>
+            <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
+              マップの場所に移動して次のクイズの答えを探そう！
+            </Typography>
+            <Typography>
+              {NAVIGATION_INFO[navigationNumber - 1]?.description}
+            </Typography>
+          </Box>
+        </Box>
+        {/* Googleマップを下に配置 */}
+        <Box
+          sx={{
+            width: '100%',
+            borderRadius: 2,
+            overflow: 'hidden',
+            boxShadow: 2,
+            mt: 1,
+          }}
+        >
+          <iframe
+            title="目的地マップ"
+            src={NAVIGATION_INFO[navigationNumber - 1]?.mapSrc}
+            width="100%"
+            height="220"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </Box>
       </Paper>
 

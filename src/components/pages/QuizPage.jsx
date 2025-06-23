@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import AnswerInput from './AnswerInput';
+import AnswerInput from '../ui/AnswerInput';
 
 function QuizPage() {
   const location = useLocation();

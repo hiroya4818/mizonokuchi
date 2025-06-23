@@ -1,6 +1,6 @@
 import React from 'react';
-import StartButton from './StartButton';
 import { useNavigate } from 'react-router-dom';
+import StartButton from '../ui/StartButton';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';

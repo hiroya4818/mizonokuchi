@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import StartButton from './StartButton';
+import StartButton from '../ui/StartButton';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
