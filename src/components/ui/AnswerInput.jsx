@@ -8,7 +8,12 @@ import { QUESTION_INFO } from '../../mocks/questionData';
 function AnswerInput({ questionNumber, navigationNumber }) {
   const [answer, setAnswer] = useState('');
   const navigate = useNavigate();
-  const correctAnswer = navigationNumber ? NAVIGATION_INFO[navigationNumber - 1].answer : QUESTION_INFO[questionNumber - 1].answer;
+  let correctAnswer = '';
+  if (navigationNumber && NAVIGATION_INFO[navigationNumber - 1]) {
+    correctAnswer = NAVIGATION_INFO[navigationNumber - 1].answer;
+  } else if (questionNumber && QUESTION_INFO[questionNumber - 1]) {
+    correctAnswer = QUESTION_INFO[questionNumber - 1].answer;
+  }
   let isCorrect;
 
   const handleInputChange = (e) => {
