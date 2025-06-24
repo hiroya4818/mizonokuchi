@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import AnswerInput from '../ui/AnswerInput';
+import { QUESTION_INFO } from '../../mocks/questionData';
 
 function QuizPage() {
   const location = useLocation();
@@ -37,15 +38,19 @@ function QuizPage() {
           p: 2,
           mb: 4,
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        {questionNumber ? (
+        <Typography sx={{ mb: 2, fontWeight: 'bold'}}>
+          Q.{ QUESTION_INFO[questionNumber - 1]?.question }
+        </Typography>
+        {questionNumber && QUESTION_INFO[questionNumber - 1] ? (
           <Box
             component="img"
-            src={`/Quiz/Quiz${questionNumber}.png`}
-            alt={`クイズ${questionNumber}`}
+            src={QUESTION_INFO[questionNumber - 1].imageSrc}
+            alt="目印の画像"
             sx={{
               width: '100%',
               maxWidth: 500,

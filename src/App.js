@@ -7,10 +7,12 @@ import Header from './components/ui/Header';
 import IntroPage from './components/pages/IntroPage';
 import NavigationPage from './components/pages/NavigationPage';
 import ExplanationPage from './components/pages/ExplanationPage';
-
+import ScrollToTop from './components/ui/ScrollToTop';
+// ...existing code...
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<StartPage />} />
@@ -24,5 +26,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import AnswerInput from '../ui/AnswerInput';
 import {NAVIGATION_INFO} from '../../mocks/navigationData';
 
-function NavigationPage({ catMessage = "目印を探してみようニャ！", description = "次の目印は、溝の口駅前 円筒分水広場にあるよ！", imageSrc = "/images/navigation.png" }) {
+function NavigationPage() {
   const location = useLocation();
   const [navigationNumber, setNavigationNumber] = useState(null);
 

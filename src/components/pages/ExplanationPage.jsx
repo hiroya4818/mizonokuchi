@@ -39,7 +39,7 @@ function ExplanationPage() {
         px: 2,
       }}
     >
-      {/* 会話形式で表示 */}
+      {/* 会話を上から順にPaperで表示 */}
       {data.length > 0 && data.map((item, idx) => (
         <Paper
           key={idx}
@@ -53,7 +53,8 @@ function ExplanationPage() {
             display: 'flex',
             alignItems: 'flex-start',
             gap: 2,
-            backgroundColor: item.name === "のくち" ? '#fffbe6' : '#e6f7ff',
+            backgroundColor: item.name === "のくち" ? '#fff' : '#f0f6ff', // 視認性の高い色
+            border: '1px solid #e0e0e0',
           }}
         >
           <Box
