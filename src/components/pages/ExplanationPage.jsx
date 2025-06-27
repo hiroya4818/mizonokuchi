@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import StartButton from '../ui/StartButton';
 import { EXPLANATION_INFO } from '../../mocks/explanationData';
+import styles from '../../styles/sxStyles'; // スタイルをインポート
 
 function ExplanationPage() {
   const navigate = useNavigate();
@@ -24,7 +25,8 @@ function ExplanationPage() {
   }, [location.search]);
 
   const handleStart = () => {
-    navigate(`/navigation?n=${Number(explanationNumber) + 1}`);
+    if (explanationNumber === 6) navigate('/end');
+    else navigate(`/navigation?n=${Number(explanationNumber) + 1}`);
   };
 
   return (
@@ -39,47 +41,62 @@ function ExplanationPage() {
         px: 2,
       }}
     >
-      {/* 会話を上から順にPaperで表示 */}
-      {data.length > 0 && data.map((item, idx) => (
-        <Paper
-          key={idx}
-          elevation={2}
-          sx={{
-            width: '100%',
-            maxWidth: 600,
-            mb: 2,
-            p: 2,
-            borderRadius: 2,
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: 2,
-            backgroundColor: item.name === "のくち" ? '#fff' : '#f0f6ff', // 視認性の高い色
-            border: '1px solid #e0e0e0',
-          }}
+      {/* タイトルも白い台紙に乗せる */}
+      <Paper
+        elevation={2}
+        sx={styles.sheet}
+      >
+        <Typography
+          textAlign={'center'}
+          sx={styles.title}
         >
+          キラリデッキのリニューアルについての会話
+        </Typography>
+
+        {/* 会話全体 */}
+        {data.length > 0 && data.map((item, idx) => (
           <Box
-            component="img"
-            src={item.imageSrc}
-            alt={item.name}
+            key={idx}
             sx={{
-              width: 48,
-              height: 48,
-              borderRadius: '50%',
-              objectFit: 'cover',
-              boxShadow: 1,
-              mr: 2,
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: 2,
+              mb: idx !== data.length - 1 ? 2 : 0,
+              backgroundColor: item.name === "のくち" ? '#fff' : '#e3eafc',
+              borderRadius: 2,
+              p: 1.2,
+              width: '100%',
             }}
-          />
-          <Box>
-            <Typography variant="subtitle2" fontWeight={700} color="primary" gutterBottom>
-              {item.name}
-            </Typography>
-            {item.message.split('\n').map((line, i) => (
-              <Typography key={i}>{line}</Typography>
-            ))}
+          >
+            <Box
+              component="img"
+              src={item.imageSrc}
+              alt={item.name}
+              sx={{
+                width: 40,
+                height: 40,
+                borderRadius: '50%',
+                objectFit: 'cover',
+                boxShadow: 1,
+                mr: 1,
+              }}
+            />
+            <Box>
+              <Typography
+                variant="subtitle2"
+                fontWeight={700}
+                color="primary"
+                gutterBottom
+              >
+                {item.name}
+              </Typography>
+              {item.message.split('\n').map((line, i) => (
+                <Typography key={i}>{line}</Typography>
+              ))}
+            </Box>
           </Box>
-        </Paper>
-      ))}
+        ))}
+      </Paper>
 
       {/* 次の目的地へボタン */}
       <Box

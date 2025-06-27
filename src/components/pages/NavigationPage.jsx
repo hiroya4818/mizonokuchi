@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import AnswerInput from '../ui/AnswerInput';
 import {NAVIGATION_INFO} from '../../mocks/navigationData';
+import styles from '../../styles/sxStyles'; // スタイルをインポート
 
 function NavigationPage() {
   const location = useLocation();
@@ -15,14 +16,6 @@ function NavigationPage() {
     const n = Number(params.get('n'));
     setNavigationNumber(n);
   }, [location.search]);
-
-  // const answer = (answerWord) => {
-  //   if (answerWord === navigationData[navigationNumber - 1].answer) {
-  //     return true;
-  //   } else {
-  //     isMissAnswer = true;
-  //   }
-  // };
 
     return (
     <Box
@@ -39,17 +32,7 @@ function NavigationPage() {
       {/* ネコと説明文 */}
       <Paper
         elevation={2}
-        sx={{
-          width: '100%',
-          maxWidth: 600,
-          mb: 4,
-          p: 3,
-          borderRadius: 2,
-          display: 'flex',
-          flexDirection: 'column', // 縦並び
-          alignItems: 'flex-start',
-          gap: 2,
-        }}
+        sx={styles.sheet}
       >
         {/* ネコ画像＋文章を横並びで1セット */}
         <Box
@@ -75,8 +58,8 @@ function NavigationPage() {
             }}
           />
           <Box>
-            <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
-              マップの場所に移動して次のクイズの答えを探そう！
+            <Typography sx={styles.title} color="primary" gutterBottom>
+              マップの場所に移動して<br/>次のクイズの答えを探そう！
             </Typography>
             <Typography>
               {NAVIGATION_INFO[navigationNumber - 1]?.description}
@@ -109,19 +92,9 @@ function NavigationPage() {
       {/* 画像 */}
       <Paper
         elevation={1}
-        sx={{
-          width: '100%',
-          maxWidth: 600,
-          borderRadius: 2,
-          p: 2,
-          mb: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+        sx={styles.sheet}
       >
-        <Typography sx={{ mb: 2, fontWeight: 'bold'}}>
+        <Typography sx={styles.title} textAlign="center">
           Q.{ NAVIGATION_INFO[navigationNumber - 1]?.question }
         </Typography>
         {navigationNumber && NAVIGATION_INFO[navigationNumber - 1] ? (
@@ -129,13 +102,7 @@ function NavigationPage() {
             component="img"
             src={NAVIGATION_INFO[navigationNumber - 1].imageSrc}
             alt="目印の画像"
-            sx={{
-              width: '100%',
-              maxWidth: 500,
-              height: 'auto',
-              borderRadius: 2,
-              boxShadow: 2,
-            }}
+            sx={styles.image}
           />
         ) : (
           <Typography color="text.secondary">画像を読み込み中...</Typography>

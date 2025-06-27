@@ -4,6 +4,7 @@ import StartButton from '../ui/StartButton';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import styles from '../../styles/sxStyles'; // スタイルをインポート
 
 function StartPage() {
   const navigate = useNavigate();
@@ -26,31 +27,15 @@ function StartPage() {
     >
       <Paper
         elevation={2}
-        sx={{
-          width: '100%',
-          maxWidth: 600,
-          mb: 4,
-          p: 3,
-          borderRadius: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
+        sx={styles.sheet}
       >
         <Box
           component="img"
           src="/image.png"
           alt="main visual"
-          sx={{
-            width: '100%',
-            maxWidth: 500,
-            height: 'auto',
-            borderRadius: 2,
-            boxShadow: 2,
-            mb: 3,
-          }}
+          sx={styles.image}
         />
-        <Typography sx={{ mb: 2 }}>
+        <Typography sx={styles.title}>
           スタートボタンを押して冒険を始めよう！
         </Typography>
         <StartButton

@@ -8,6 +8,7 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import styles from '../../styles/sxStyles'; // スタイルをインポート
 
 function IntroPage() {
   const navigate = useNavigate();
@@ -32,19 +33,13 @@ function IntroPage() {
       {/* スタート地点への案内 */}
       <Paper
         elevation={2}
-        sx={{
-          width: '100%',
-          maxWidth: 600,
-          mb: 4,
-          p: 3,
-          borderRadius: 2,
-        }}
+        sx={styles.sheet}
       >
-        <Typography variant="h6" color="primary" fontWeight={700} gutterBottom>
+        <Typography sx={styles.title}>
           まずはスタート地点へ移動してください
         </Typography>
-        <Typography sx={{ mb: 2 }}>
-          スタート地点は「溝の口駅前 円筒分水広場」です。
+        <Typography sx={styles.bodyText}>
+          スタート地点は「溝の口駅前 きらりデッキ」
         </Typography>
         <Box
           sx={{
@@ -69,13 +64,7 @@ function IntroPage() {
       {/* シナリオ導入（開閉式） */}
       <Paper
         elevation={1}
-        sx={{
-          width: '100%',
-          maxWidth: 600,
-          borderRadius: 2,
-          p: 3,
-          mb: 2,
-        }}
+        sx={styles.sheet}
       >
         <Box display="flex" alignItems="center" justifyContent="space-between" mb={1}>
           <Typography variant="subtitle1" color="primary" fontWeight={700}>
@@ -88,55 +77,33 @@ function IntroPage() {
         <Collapse in={open}>
           <Box 
             display="flex" 
-            alignItems="center"
+            alignItems="flex-start"
             justifyContent="space-between" 
             mb={1}
           >
-            <Paper
-              elevation={2}
+            <Box
+              component="img"
+              src="/icon/cat.png"
+              alt="のくち"
               sx={{
-                width: '100%',
-                maxWidth: 600,
-                p: 3,
-                borderRadius: 2,
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: 2,
-                // background: '#fffbe6',
-                boxShadow: 0,
-                mb: 0,
+                width: 64,
+                height: 64,
+                borderRadius: '50%',
+                objectFit: 'cover',
+                boxShadow: 1,
+                mr: 2,
               }}
-            >
+            />
             <Box>
-              <Box
-                component="img"
-                src="/icon/cat.png"
-                alt="のくち"
-                sx={{
-                  width: 64,
-                  height: 64,
-                  borderRadius: '50%',
-                  objectFit: 'cover',
-                  boxShadow: 1,
-                  mr: 2,
-                }}
-              />
-                <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
-                  のくち
-                </Typography>
-
-              </Box>
-              <Box>
-                <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
-                  やあ、旅人さん！
-                </Typography>
-                <Typography>
-                  ここは“みぞのくち”の時の流れが交わる場所、円筒分水広場だニャ。<br />
-                  ボクは“のくち”。この町の歴史を案内するネコだよ。<br />
-                  さあ、一緒にみぞのくちの歴史を巡る冒険に出発しようニャ！
-                </Typography>
-              </Box>
-            </Paper>
+              <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>
+                のくち
+              </Typography>
+              <Typography sx={styles.bodyText}>
+                ボクは“のくち”。この町の歴史を案内するネコだよ。<br />
+                ここは“みぞのくち”の時の流れが交わる場所、円筒分水広場だニャ。<br />
+                さあ、一緒にみぞのくちの歴史を巡る冒険に出発しようニャ！
+              </Typography>
+            </Box>
           </Box>
         </Collapse>
       </Paper>
