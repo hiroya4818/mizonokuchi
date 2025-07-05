@@ -11,17 +11,14 @@ function ExplanationPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const [explanationNumber, setExplanationNumber] = useState(null);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const e = Number(params.get('e'));
     setExplanationNumber(e);
-    if (EXPLANATION_INFO[e - 1]) {
-      setData(EXPLANATION_INFO[e - 1]);
-    } else {
-      setData([]);
-    }
+    if (EXPLANATION_INFO[e - 1]) setData(EXPLANATION_INFO[e - 1]);
+    else setData({});
   }, [location.search]);
 
   const handleStart = () => {
@@ -30,17 +27,7 @@ function ExplanationPage() {
   };
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        background: '#fff5e1',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        py: 5,
-        px: 2,
-      }}
-    >
+    <Box sx={styles.baseBox}>
       {/* タイトルも白い台紙に乗せる */}
       <Paper
         elevation={2}
@@ -50,11 +37,11 @@ function ExplanationPage() {
           textAlign={'center'}
           sx={styles.title}
         >
-          キラリデッキのリニューアルについての会話
+          {data?.title}
         </Typography>
 
         {/* 会話全体 */}
-        {data.length > 0 && data.map((item, idx) => (
+        {data?.conversation.length > 0 && data?.conversation.map((item, idx) => (
           <Box
             key={idx}
             sx={{
@@ -65,21 +52,13 @@ function ExplanationPage() {
               backgroundColor: item.name === "のくち" ? '#fff' : '#e3eafc',
               borderRadius: 2,
               p: 1.2,
-              width: '100%',
             }}
           >
             <Box
               component="img"
               src={item.imageSrc}
               alt={item.name}
-              sx={{
-                width: 40,
-                height: 40,
-                borderRadius: '50%',
-                objectFit: 'cover',
-                boxShadow: 1,
-                mr: 1,
-              }}
+              sx={styles.iconMini}
             />
             <Box>
               <Typography

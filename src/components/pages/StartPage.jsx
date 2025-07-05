@@ -10,21 +10,11 @@ function StartPage() {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate('/intro');
+    navigate('/storyIntro');
   };
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        background: '#fff5e1',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        py: 5,
-        px: 2,
-      }}
-    >
+    <Box sx={styles.baseBox}>
       <Paper
         elevation={2}
         sx={styles.sheet}
@@ -35,7 +25,7 @@ function StartPage() {
           alt="main visual"
           sx={styles.image}
         />
-        <Typography sx={styles.title}>
+        <Typography sx={styles.title} textAlign={'center'}>
           スタートボタンを押して冒険を始めよう！
         </Typography>
         <StartButton

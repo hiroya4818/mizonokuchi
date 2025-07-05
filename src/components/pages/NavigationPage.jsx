@@ -35,34 +35,16 @@ function NavigationPage() {
         sx={styles.sheet}
       >
         {/* ネコ画像＋文章を横並びで1セット */}
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: 2,
-            width: '100%',
-            mb: 2,
-          }}
-        >
+        <Box sx={styles.conversationBox}>
           <Box
             component="img"
             src="/icon/cat.png"
             alt="のくち"
-            sx={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
-              objectFit: 'cover',
-              boxShadow: 1,
-              mr: 2,
-            }}
+            sx={styles.icon}
           />
           <Box>
             <Typography sx={styles.title} color="primary" gutterBottom>
               マップの場所に移動して<br/>次のクイズの答えを探そう！
-            </Typography>
-            <Typography>
-              {NAVIGATION_INFO[navigationNumber - 1]?.description}
             </Typography>
           </Box>
         </Box>
@@ -87,6 +69,20 @@ function NavigationPage() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </Box>
+        <Typography
+          sx={{
+            mt: 2,
+            mb: 1,
+            textAlign: 'center',
+            fontSize: { xs: '1rem', sm: '1.08rem' },
+            color: '#333', // ← ここを濃いグレーに変更
+            fontWeight: 500, // ← 少し太く
+            fontFamily: '"Rounded Mplus 1c", "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif',
+            textDecoration: 'underline',
+          }}
+        >
+          {NAVIGATION_INFO[navigationNumber - 1]?.description}
+        </Typography>
       </Paper>
 
       {/* 画像 */}
@@ -119,8 +115,6 @@ function NavigationPage() {
           pb: 2,
         }}
       >
-        {/* <Typography variant="h6" color="primary" sx={{ mb: 2 }}> */}
-
         <AnswerInput navigationNumber={navigationNumber} />
       </Box>
     </Box>

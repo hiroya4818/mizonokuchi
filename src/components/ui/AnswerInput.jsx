@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +15,7 @@ function AnswerInput({ questionNumber, navigationNumber }) {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
+  const [isShowImage, setIsShowImage] = useState(false); // ← useStateで管理
   const navigate = useNavigate();
 
   let correctAnswer = '';
@@ -32,16 +32,25 @@ function AnswerInput({ questionNumber, navigationNumber }) {
   const handleSubmit = () => {
     const correct = answer.trim() === correctAnswer;
     setIsCorrect(correct);
-    setDialogMessage(
-      correct
-        ? '正解！次のステップへ進もう'
-        : '不正解！もう一度、考えてみよう'
-    );
+    if (correct) {
+      if (navigationNumber) {
+        setIsShowImage(true); // ← ここでtrueにする
+        setDialogMessage('正解！時空の扉が開き、\n過去の溝の口へタイムスリップする…！');
+      } else {
+        setIsShowImage(true); // ← ここもtrue
+        setDialogMessage('正解！時空の扉が開き、\n現代の溝の口へタイムスリップする…！');
+      }
+    } else {
+      setIsShowImage(false); // ← 不正解時はfalse
+      setDialogMessage('不正解！もう一度、考えてみよう');
+
+    }
     setDialogOpen(true);
   };
 
   const handleDialogClose = () => {
     setDialogOpen(false);
+    setIsShowImage(false); // ← ダイアログ閉じたらリセット
     if (isCorrect) {
       if (questionNumber) {
         navigate(`/explanation?e=${Number(questionNumber)}`);
@@ -70,10 +79,41 @@ function AnswerInput({ questionNumber, navigationNumber }) {
       >
         決定
       </Button>
-      <Dialog open={dialogOpen} onClose={handleDialogClose}>
-        <DialogContent sx={styles.title}>{dialogMessage}</DialogContent>
+      <Dialog
+        open={dialogOpen}
+        onClose={handleDialogClose}
+        PaperProps={{
+          sx: {
+            minWidth: 320,
+            maxWidth: 360,
+            borderRadius: 3,
+          },
+        }}
+      >
+        <DialogContent sx={{ ...styles.title, textAlign: 'center' }}>
+          {dialogMessage}
+          {isShowImage && (
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <img
+                src="/icon/timetravel.gif"
+                alt="タイムトラベル中"
+                style={{
+                  width: '100%',
+                  marginTop: 16,
+                  animation: 'spin 1.5s linear infinite',
+                  filter: 'drop-shadow(0 0 10px #0ed2f7)',
+                  display: 'block',
+                }}
+              />
+            </div>
+          )}
+        </DialogContent>
         <DialogActions>
-          <Button onClick={handleDialogClose} autoFocus>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={handleDialogClose}
+            autoFocus>
             OK
           </Button>
         </DialogActions>

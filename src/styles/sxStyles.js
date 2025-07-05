@@ -1,4 +1,13 @@
 const styles = {
+  baseBox: {
+    minHeight: '100vh',
+    background: '#fff5e1',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    py: 5,
+    px: 2,
+  },
   sheet: {
     width: '100%',
     maxWidth: 600,
@@ -32,6 +41,29 @@ const styles = {
     borderRadius: 2,
     boxShadow: 2,
     mb: 3,
+  },
+  icon: {
+    width: 64,
+    height: 64,
+    borderRadius: '50%',
+    objectFit: 'cover',
+    boxShadow: 1,
+    mr: 2,
+  },
+  iconMini: {
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    objectFit: 'cover',
+    boxShadow: 1,
+    mr: 1,
+  },
+  conversationBox: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: 2,
+    width: '100%',
+    mb: 2,
   },
   // ...他にも必要なスタイルを追加
 };

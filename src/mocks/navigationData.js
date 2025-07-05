@@ -2,7 +2,7 @@ export const NAVIGATION_INFO = [
   {
     id: 1,
     catMessage: "最初の目印を探してみようニャ！",
-    description: "溝の口駅前 円筒分水広場",
+    description: "きらりデッキ",
     mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1622.0691058325642!2d139.6113513038319!3d35.59965712270186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f50001b5b311%3A0xda17c35de2ad563c!2z44Kt44Op44Oq44OH44OD44Kt!5e0!3m2!1sja!2sjp!4v1748177161332!5m2!1sja!2sjp",
     imageSrc: "/Navigation/Landmark1.png",
     questionNumber: 1,
@@ -46,8 +46,8 @@ export const NAVIGATION_INFO = [
     mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.971759035024!2d139.60883758335672!3d35.603763201995164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f421755f9193%3A0x36813e45b9026954!2z54Gw5ZC55bGL6Jas5bGA5pys6YOo!5e0!3m2!1sja!2sjp!4v1751008192986!5m2!1sja!2sjp",
     imageSrc: "/Navigation/Landmark5.png",
     questionNumber: 1,
-    question: "白枠に隠された場所にはどんな漢字が入るかな？",
-    answer: "万",
+    question: "白枠に隠された場所にはどんな言葉が入るかな？",
+    answer: "にかりょうようすい",
   },
   {
     id: 6,

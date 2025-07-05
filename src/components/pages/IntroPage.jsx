@@ -75,12 +75,7 @@ function IntroPage() {
           </IconButton>
         </Box>
         <Collapse in={open}>
-          <Box 
-            display="flex" 
-            alignItems="flex-start"
-            justifyContent="space-between" 
-            mb={1}
-          >
+          <Box sx={styles.conversationBox}>
             <Box
               component="img"
               src="/icon/cat.png"
@@ -100,8 +95,9 @@ function IntroPage() {
               </Typography>
               <Typography sx={styles.bodyText}>
                 ボクは“のくち”。この町の歴史を案内するネコだよ。<br />
-                ここは“みぞのくち”の時の流れが交わる場所、円筒分水広場だニャ。<br />
-                さあ、一緒にみぞのくちの歴史を巡る冒険に出発しようニャ！
+                まずはスタート地点へ！<br />
+                そこから過去へタイムトラベル。<br />
+                君のひらめきで謎を解き明かしてほしいニャ！
               </Typography>
             </Box>
           </Box>
