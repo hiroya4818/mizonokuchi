@@ -43,11 +43,13 @@ function StoryIntroPage() {
       },
       { threshold: 0.3 }
     );
-    refs.current.forEach((ref, idx) => {
+    // refs.currentをローカル変数にコピーして使う
+    const currentRefs = refs.current;
+    currentRefs.forEach((ref, idx) => {
       if (ref && (idx === 0 || visible[idx - 1])) observer.observe(ref);
     });
     return () => {
-      refs.current.forEach(ref => {
+      currentRefs.forEach(ref => {
         if (ref) observer.unobserve(ref);
       });
     };
