@@ -8,16 +8,18 @@ export const NAVIGATION_INFO = [
     questionNumber: 1,
     question: "広場には何個の円筒型の椅子があるかな？",
     answer: "8",
+    answerDetail: "広場には案内用の円筒型の椅子が8個あります。",
   },
   {
     id: 2,
     catMessage: "次の目印を探してみようニャ！",
     description: "ポレポレ通り商店街",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d482.81661480041583!2d139.61202155022693!3d35.60010630456413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f426ddd9a7bb%3A0x6ecefce55f41f163!2zT0tLQTYzNCjjgqrjg4Pjgqsg44Og44K144K3KQ!5e0!3m2!1sja!2sjp!4v1750682446269!5m2!1sja!2sjp",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d811.0325466247908!2d139.61167063551287!3d35.59985509817086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f582bd55f8ab%3A0x9ac49d555919cc98!2z44Od44Os44Od44Os6YCa44KK!5e0!3m2!1sja!2sjp!4v1751895923573!5m2!1sja!2sjp",
     imageSrc: "/Navigation/Landmark2.png",
     questionNumber: 1,
     question: "白枠に隠された場所にはどんな数字が入るかな？",
     answer: "634",
+    answerDetail: "白枠には『634』という数字が入ります。",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const NAVIGATION_INFO = [
     questionNumber: 1,
     question: "白枠に隠された場所にはどんなご利益が入るかな？",
     answer: "縁結び",
+    answerDetail: "溝の口神社は『縁結び』のご利益で有名です。",
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ export const NAVIGATION_INFO = [
     questionNumber: 1,
     question: "白枠に隠された場所にはどんな漢字が入るかな？",
     answer: "万",
+    answerDetail: "『万』は『萬屋（よろずや）』の『万』で、灰吹屋の歴史に由来しています。",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ export const NAVIGATION_INFO = [
     questionNumber: 1,
     question: "白枠に隠された場所にはどんな言葉が入るかな？",
     answer: "にかりょうようすい",
+    answerDetail: "『にかりょうようすい（二ヶ領用水）』は、川崎市を流れる歴史ある用水路の名前です。",
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export const NAVIGATION_INFO = [
     questionNumber: 1,
     question: "白枠に隠された場所にはどんな言葉が入るかな？",
     answer: "分量",
+    answerDetail: "久地円筒分水では水を『分量』で正確に分ける仕組みが使われています。",
   },
   // 他の目印データ...
 ];

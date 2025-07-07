@@ -80,14 +80,7 @@ function IntroPage() {
               component="img"
               src="/icon/cat.png"
               alt="のくち"
-              sx={{
-                width: 64,
-                height: 64,
-                borderRadius: '50%',
-                objectFit: 'cover',
-                boxShadow: 1,
-                mr: 2,
-              }}
+              sx={styles.icon}
             />
             <Box>
               <Typography variant="subtitle1" fontWeight={700} color="primary" gutterBottom>

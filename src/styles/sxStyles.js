@@ -65,6 +65,15 @@ const styles = {
     width: '100%',
     mb: 2,
   },
+  button: {
+    width: 'auto',
+    alignSelf: 'center',
+    px: 4,
+    fontWeight: 'bold',
+    fontSize: '1.1rem',
+    borderRadius: 8,
+    mt: 2,
+  },
   // ...他にも必要なスタイルを追加
 };
 

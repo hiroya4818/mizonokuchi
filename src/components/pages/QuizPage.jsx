@@ -6,11 +6,17 @@ import Typography from '@mui/material/Typography';
 import AnswerInput from '../ui/AnswerInput';
 import { QUESTION_INFO } from '../../mocks/questionData';
 import styles from '../../styles/sxStyles'; // スタイルをインポート
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 
 function QuizPage() {
   const location = useLocation();
   const [questionNumber, setQuestionNumber] = useState(null);
   const [data, setData] = useState(null);
+  const [showAnswerDialog, setShowAnswerDialog] = useState(false);
+  
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -95,12 +101,56 @@ function QuizPage() {
           width: '100%',
           maxWidth: 600,
           display: 'flex',
-          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
           pb: 2,
         }}
       >
         <AnswerInput questionNumber={questionNumber} />
+        <Button
+          variant="text"
+          size="medium"
+          sx={{ mt: 2, color: '#888' }}
+          onClick={() => setShowAnswerDialog(true)}
+        >
+          本当にわからないときは…答えを見る
+        </Button>
       </Box>
+
+      {/* 答えダイアログ */}
+      <Dialog
+        open={showAnswerDialog}
+        onClose={() => setShowAnswerDialog(false)}
+        PaperProps={{
+          sx: { minWidth: 260, maxWidth: 340, borderRadius: 3 }
+        }}
+      >
+        <DialogContent sx={{ textAlign: 'center', py: 3 }}>
+          <Typography variant="h6" color="primary" sx={{ mb: 2, fontWeight: 'bold' }}>
+            答え
+          </Typography>
+          <Typography sx={{ fontSize: '1.2rem', fontWeight: 'bold', mb: 2, color: '#c00' }}>
+            {data?.answer}
+          </Typography>
+          <Typography sx={{ color: '#444', whiteSpace: 'pre-line', mb: 1 }}>
+            {data?.answerDetail
+              ? data.answerDetail
+              : 'この答えは現地やヒントから導き出せます。詳しい解説は現地の案内やアプリ内の説明も参考にしてください。'}
+          </Typography>
+        </DialogContent>
+        <DialogActions sx={{ justifyContent: 'center', pb: 2 }}>
+          <Button
+            onClick={() => setShowAnswerDialog(false)}
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={styles.button}
+            autoFocus
+          >
+            閉じる
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
