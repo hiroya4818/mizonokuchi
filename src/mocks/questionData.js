@@ -17,7 +17,8 @@ export const QUESTION_INFO = [
         name: "のくち",
         imageSrc: "/icon/cat.png",
         message: [
-          "そうニャ、ここは昔の駅前だよ。",
+          "ぼくの案内で、時空をこえて昔の駅前に連れてきたんだ！",
+          "この町のヒミツを一緒に探しに行こう！",
           "2009年にキラリデッキや、あるものをモチーフにした広場ができて、今のにぎやかな駅前になったんだ。"
         ].join('\n'),
       },
@@ -29,7 +30,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "それじゃあ、謎を解いて、その広場の名前を当ててみてニャ！",
+        message: "それじゃあ、謎を解いて、その広場の名前を当ててみて！",
       }
     ],
   },
@@ -56,7 +57,7 @@ export const QUESTION_INFO = [
         name: "のくち",
         imageSrc: "/icon/cat.png",
         message: [
-          "そうニャ、ここは昔の商店街だよ。",
+          "そうだよ、ここは昔の商店街だよ。",
         ].join('\n'),
       },
       {
@@ -67,17 +68,20 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "実はこの商店街の名前、みんなで決めている所なんだニャ。",
+        message: "実はこの商店街の名前、みんなで決めているところなんだ。",
       },
       {
         name: "あなた",
         imageSrc: "/icon/man.png",
-        message: "どんな名前に決まっるのかな？それに、これから商店街ではイベントがあるのかな？",
+        message: [
+          "どんな名前に決まるのか楽しみだね！",
+          "それに、これから商店街ではどんなイベントが開催されていくのかな？",
+        ].join('\n'),
       },
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "それを知りたければ、謎を解いてみてニャ！",
+        message: "それを知りたければ、謎を解いてみて！",
       }
     ],
   },
@@ -89,7 +93,7 @@ export const QUESTION_INFO = [
     answer: "けやき",
     answerDetail: [
       "イラストには『たぬき』『ことり』『はがき』が描かれています。",
-      "文章から『た』『こ』を消し、『は』を『が』に変えて読むと、残る文字が『けやき』となります。",
+      "文章から『た』『こ』を消し、『は』を『き』に変えて読むと、残る文字が『けやき』となります。",
       "このようにして答えは『けやき』と導き出せます。"
     ].join('\n'),
     title: "神社の大樹のヒミツを探ろう！",
@@ -102,7 +106,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "500年前の溝の口神社にタイムスリップしたニャ！この場所で何かを植えているみたいだよ。",
+        message: "500年前の溝の口神社にタイムスリップしたよ。この場所で何かを植えているみたいだね。",
       },
       {
         name: "あなた",
@@ -113,8 +117,8 @@ export const QUESTION_INFO = [
         name: "のくち",
         imageSrc: "/icon/cat.png",
         message: [
-          "それは今も神社を見守る、樹齢500年の大樹なんだニャ。",
-          "なんの種類の木かは、謎に挑戦して解き明かしてほしいニャ！"
+          "それは今も神社を見守る、樹齢500年の大樹なんだ。",
+          "何の種類の木かは、謎に挑戦して解き明かしてほしい！"
         ].join('\n'),
       }
     ],
@@ -139,7 +143,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "そうニャ。この時代の灰吹屋は“萬屋（よろずや）”として、いろんな商品を扱っていたんだよ。",
+        message: "この時代の灰吹屋は“萬屋（よろずや）”として、いろんな商品を扱っていたんだ。",
       },
       {
         name: "あなた",
@@ -149,7 +153,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "それは謎を解いて確かめてみてニャ！",
+        message: "それは謎を解いて確かめてみて！",
       }
     ],
   },
@@ -176,7 +180,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "二ヶ領用水ができた時代にタイムスリップしたニャ！当時は多摩川の水を堰き止めて、二ヶ領用水に導いたんだよ。",
+        message: "二ヶ領用水ができた時代にタイムスリップしたよ。当時は多摩川の水を堰き止めて、二ヶ領用水に導いたんだ。",
       },
       {
         name: "あなた",
@@ -186,7 +190,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "それは謎を解いて確かめてみてニャ！",
+        message: "それは謎を解いて確かめてみて！",
       }
     ],
   },
@@ -211,7 +215,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "そうニャ、それまでは水門で水を分けていたけど、今は円筒分水になっているんだよ。",
+        message: "それまでは水門で水を分けていたけど、今は円筒分水になっているんだ。",
       },
       {
         name: "あなた",
@@ -221,7 +225,7 @@ export const QUESTION_INFO = [
       {
         name: "のくち",
         imageSrc: "/icon/cat.png",
-        message: "その理由は謎を解いて確かめてみてニャ！",
+        message: "その理由は謎を解いて確かめてみて！",
       }
     ],
   },

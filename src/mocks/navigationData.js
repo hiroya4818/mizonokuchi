@@ -47,11 +47,11 @@ export const NAVIGATION_INFO = [
     id: 5,
     catMessage: "次の目印を探してみようニャ！",
     description: "",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.971759035024!2d139.60883758335672!3d35.603763201995164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f421755f9193%3A0x36813e45b9026954!2z54Gw5ZC55bGL6Jas5bGA5pys6YOo!5e0!3m2!1sja!2sjp!4v1751008192986!5m2!1sja!2sjp",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.0132837647693!2d139.6074379833562!3d35.60273890199646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f51f675f0197%3A0x3f4f6c88cea1341a!2z5aSn55-z5qmL!5e0!3m2!1sja!2sjp!4v1752421763832!5m2!1sja!2sjp",
     imageSrc: "/Navigation/Landmark5.png",
     questionNumber: 1,
     question: "白枠に隠された場所にはどんな言葉が入るかな？",
-    answer: "にかりょうようすい",
+    answer: "にかりょうよう",
     answerDetail: "『にかりょうようすい（二ヶ領用水）』は、川崎市を流れる歴史ある用水路の名前です。",
   },
   {

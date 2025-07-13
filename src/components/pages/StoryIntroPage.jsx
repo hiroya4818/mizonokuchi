@@ -66,14 +66,7 @@ function StoryIntroPage() {
             component="img"
             src="/icon/cat.png"
             alt="のくち"
-            sx={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
-              objectFit: 'cover',
-              boxShadow: 2,
-              background: '#f5fafd',
-            }}
+            sx={styles.icon}
           />
         </Box>
         <Typography

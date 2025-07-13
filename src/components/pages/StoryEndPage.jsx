@@ -1,14 +1,15 @@
 import { useRef, useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import styles from '../../styles/sxStyles';
 
 const endParagraphs = [
   "おめでとうございます！",
-  "あなたはみぞのくちの“謎”をすべて解き明かしました。",
-  "時を超えた冒険の中で、\n町の歴史や人々の想いにふれることができました。",
-  "これからも、みぞのくちの魅力を\nたくさんの人に伝えていってください。",
+  "あなたはみぞのくちの“謎”を解き明かしました。",
+  "時を超えた冒険の中で、\n町の歴史にふれることができました。",
+  "これからも、みぞのくちの魅力を\nたくさんの人に伝えてください。",
   "また新しい物語でお会いしましょう。"
 ];
 
@@ -56,15 +57,18 @@ function StoryEndPage() {
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
           <Box
             component="img"
-            src="/icon/cat.png"
-            alt="のくち"
+            src="/clear.png" // クリア用画像のパスに変更
+            alt="クリア"
             sx={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
+              width: '100%',
+              maxWidth: 480, // 必要に応じて最大幅を調整
+              height: 'auto',
               objectFit: 'cover',
               boxShadow: 2,
               background: '#f5fafd',
+              borderRadius: 3,
+              display: 'block',
+              mx: 'auto',
             }}
           />
         </Box>
@@ -100,28 +104,23 @@ function StoryEndPage() {
         ))}
       </Paper>
       <Box sx={{ textAlign: 'center', mt: 3 }}>
-        <Typography sx={{ mb: 1, fontWeight: 'bold', color: '#1976d2' }}>
-          よろしければアンケートにもご協力ください
+        <Typography sx={{ mb: 1, fontWeight: 'bold', whiteSpace: 'pre-line' }}>
+          みなさんの声が次回作づくりの力になりますので、アンケートご協力お願いします！
         </Typography>
+        <Button
+            variant="contained"
+            size="large">
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLScz0CAjs8i4fJ-H9_mL9l-rColH1Kg5iPKA3cSfYKHsJJIdHw/viewform?usp=dialog" // ←ここにGoogleフォームのURLを入れてください
-          target="_blank"
-          rel="noopener noreferrer"
+          // target="_blank"
+          // rel="noopener noreferrer"
           style={{
-            display: 'inline-block',
-            padding: '10px 24px',
-            background: 'linear-gradient(90deg, #0ed2f7 0%, #b2fefa 100%)',
-            color: '#222',
-            borderRadius: 8,
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            fontSize: '1.1rem',
-            boxShadow: '0 2px 8px #0ed2f766',
-            marginBottom: 16,
+            color: '#fff',
           }}
         >
           アンケートに答える
         </a>
+          </Button>
       </Box>
     </Box>
   );

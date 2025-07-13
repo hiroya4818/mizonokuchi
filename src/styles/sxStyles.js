@@ -43,8 +43,8 @@ const styles = {
     mb: 3,
   },
   icon: {
-    width: 64,
-    height: 64,
+    width: 70,
+    height: 70,
     borderRadius: '50%',
     objectFit: 'cover',
     boxShadow: 1,
