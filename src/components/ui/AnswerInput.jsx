@@ -95,12 +95,16 @@ function AnswerInput({ questionNumber, navigationNumber }) {
           {isShowImage && (
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <img
-                src="/icon/timetravel.gif"
-                alt="タイムトラベル中"
+                src={
+                  navigationNumber
+                    ? "/icon/timetravel.gif" // 問題クリア時
+                    : "/icon/return.png"      // ナビクリア時
+                }
+                alt={navigationNumber ? "タイムトラベル中" : "クリア"}
                 style={{
                   width: '100%',
                   marginTop: 16,
-                  animation: 'spin 1.5s linear infinite',
+                  animation: navigationNumber ? 'spin 1.5s linear infinite' : undefined,
                   filter: 'drop-shadow(0 0 10px #0ed2f7)',
                   display: 'block',
                 }}
